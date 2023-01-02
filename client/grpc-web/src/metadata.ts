@@ -1,3 +1,3 @@
-import {BrowserHeaders} from "browser-headers";
+import {BrowserHeaders} from "@solar-republic/js-browser-headers";
 
 export {BrowserHeaders as Metadata};

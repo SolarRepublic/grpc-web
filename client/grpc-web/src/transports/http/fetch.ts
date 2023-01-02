@@ -23,7 +23,7 @@ class Fetch implements Transport {
   cancelled: boolean = false;
   options: TransportOptions;
   init: FetchTransportInit;
-  reader: ReadableStreamReader;
+  reader: ReadableStreamReader<Uint8Array>;
   metadata: Metadata;
   controller: AbortController | undefined = (self as any).AbortController && new AbortController();
 
@@ -32,7 +32,7 @@ class Fetch implements Transport {
     this.init = init;
   }
 
-  pump(readerArg: ReadableStreamReader, res: Response) {
+  pump(readerArg: ReadableStreamReader<Uint8Array>, res: Response) {
     this.reader = readerArg;
     if (this.cancelled) {
       // If the request was cancelled before the first pump then cancel it here
@@ -43,6 +43,7 @@ class Fetch implements Transport {
       });
       return;
     }
+    // @ts-expect-error dom typing
     this.reader.read()
       .then((result: { done: boolean, value: Uint8Array }) => {
         if (result.done) {

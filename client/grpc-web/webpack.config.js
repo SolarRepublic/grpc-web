@@ -19,7 +19,7 @@ const DIST_DIR = path.resolve(__dirname, 'dist');
 module.exports = [{
     name: 'lib-commonjs',
     ...LIB_BASE_CONFIG,
-    target: 'es5',
+    target: 'web',
     output: {
       filename: `grpc-web-client.js`,
       path: DIST_DIR,
@@ -30,7 +30,7 @@ module.exports = [{
   {
     name: 'lib-umd',
     ...LIB_BASE_CONFIG,
-    target: 'es5',
+    target: 'web',
     output: {
       filename: `grpc-web-client.umd.js`,
       path: DIST_DIR,

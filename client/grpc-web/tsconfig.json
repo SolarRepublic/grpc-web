@@ -4,8 +4,8 @@
     "sourceMap": true,
     "declaration": true,
     "declarationDir": "./dist/typings",
-    "target": "es5",
-    "lib": ["es6","dom"],
+    "target": "es2020",
+    "lib": ["es2020", "dom"],
     "removeComments": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
@@ -15,7 +15,8 @@
     "stripInternal": true,
     "noFallthroughCasesInSwitch": true,
     "outDir": "dist",
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    "moduleResolution": "node"
   },
   "types": [
     "node"
