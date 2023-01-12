@@ -1,6 +1,6 @@
 {
   "name": "@solar-republic/grpc-web",
-  "version": "0.15.0-fix.2",
+  "version": "0.15.0-fix.3",
   "description": "gRPC-Web client for browsers (JS/TS)",
   "main": "dist/grpc-web-client.js",
   "browser": "dist/grpc-web-client.umd.js",
@@ -33,7 +33,7 @@
     "google-protobuf": "^3.21.2"
   },
   "dependencies": {
-    "@solar-republic/js-browser-headers": "^0.4.2-fix.5"
+    "@solar-republic/js-browser-headers": "^0.4.2-fix.6"
   },
   "devDependencies": {
     "@types/google-protobuf": "^3.15.6",

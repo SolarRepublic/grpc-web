@@ -66,15 +66,18 @@ class Fetch implements Transport {
   }
 
   send(msgBytes: Uint8Array) {
-    fetch(this.options.url, {
+    const requestConfig = {
       ...this.init,
       headers: this.metadata.toHeaders(),
       method: "POST",
       body: msgBytes,
       signal: this.controller && this.controller.signal,
-    }).then((res: Response) => {
+    };
+    fetch(this.options.url, requestConfig).then((res: Response) => {
       this.options.debug && debug("Fetch.response", res);
       this.options.onHeaders(new Metadata(res.headers as any, {
+        url: this.options.url,
+        requestConfig,
         splitValues: false,
         statusCode: res.status,
       }), res.status);
