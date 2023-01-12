@@ -74,7 +74,10 @@ class Fetch implements Transport {
       signal: this.controller && this.controller.signal,
     }).then((res: Response) => {
       this.options.debug && debug("Fetch.response", res);
-      this.options.onHeaders(new Metadata(res.headers as any), res.status);
+      this.options.onHeaders(new Metadata(res.headers as any, {
+        splitValues: false,
+        statusCode: res.status,
+      }), res.status);
       if (res.body) {
         this.pump(res.body.getReader(), res)
         return;
